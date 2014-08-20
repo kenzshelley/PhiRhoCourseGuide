@@ -1,0 +1,43 @@
+#database {
+  overflow: scroll;
+  height: 600px;
+}
+
+table, tr {
+  table-layout: fixed;
+}
+
+.h {
+  text-align: center;
+  width: 204px;
+}
+
+#header_table {
+  margin: 0px;
+}
+
+h1 {
+  display: inline;
+  position: fixed;
+}
+
+#title {
+  display: inline;
+  padding: 40px; 
+}
+
+td {
+  text-align: center;
+  width: 100px;
+}
+
+.form-control {
+  width: 200px;
+  float: right;
+  display: inline;
+  margin: 20px;
+}
+
+.form-group {
+  display: inline;
+}
