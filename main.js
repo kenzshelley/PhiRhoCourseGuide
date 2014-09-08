@@ -3,6 +3,8 @@ $(document).ready(function() {
   Parse.initialize("Ja95BMYq8EWBbF0bsGFsQUjpHqcRXl81eoTr6WRW",
     "DSHMNswCbwANFJ6SyWKVmI3AdfdsQI9FwOYDJ7gc");
   $('#temp').hide();
+  window_width = $(window).width();
+  $('h').css('width', window_width/5);
   LoadAll();
   $('input').keyup(AddFilter);
   // Add box if enter key is pressed
@@ -18,14 +20,16 @@ var LoadAll = function() {
                for (var i = 0; i < results.length; i++) {
                  var object = results[i];
                  var $last_row = $('#entries>tbody:last-child');
+                 var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
+                 var rand_id = randLetter + Date.now(); 
                  var result = '';
-                   var r = result.concat('<tr class="course full"><td> ',
+                   var r = result.concat('<tr class="full" id=', rand_id, '><td> ',
                    object.get('department'),
                    '</td><td>', object.get('number'), '</td><td>',
                    object.get('difficulty'), '</td><td>', object.get('workload'),
                    '</td><td>', object.get('overall'), '</td></tr>');
                  $('#entries').append(r);
-                 $('.course').click(CreateCoursePage);
+                 $('#'+ rand_id).click(CreateCoursePage);
                }
              },
     error: function(error) {
