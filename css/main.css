@@ -3,6 +3,18 @@
   height: 600px;
 }
 
+#filters {
+  float: right;
+  width: 400px;
+  height: 70px;
+  display: inline;
+  overflow: scroll;
+}
+
+button {
+  margin: 5px;
+}
+
 table, tr {
   table-layout: fixed;
 }
@@ -40,4 +52,9 @@ td {
 
 .form-group {
   display: inline;
+}
+
+#blowup {
+  width: 50%;
+  float: left;
 }
