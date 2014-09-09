@@ -1,6 +1,8 @@
 #database {
   overflow: scroll;
   height: 600px;
+  width: 100%;
+  float: left;
 }
 
 #filters {
@@ -15,10 +17,6 @@ button {
   margin: 5px;
 }
 
-table, tr {
-  table-layout: fixed;
-}
-
 .h {
   text-align: center;
   width: 204px;
@@ -30,7 +28,7 @@ table, tr {
 
 h1 {
   display: inline;
-  position: fixed;
+/*  position: fixed;*/
 }
 
 #title {
@@ -57,4 +55,14 @@ td {
 #blowup {
   width: 50%;
   float: left;
+}
+
+#detail_view {
+  float: right;
+  width: 48%;
+  height: 100%;
+}
+
+#professor_list {
+  width: 100%;
 }

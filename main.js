@@ -23,7 +23,7 @@ var LoadAll = function() {
                  var randLetter = String.fromCharCode(65 + Math.floor(Math.random() * 26));
                  var rand_id = randLetter + Date.now(); 
                  var result = '';
-                   var r = result.concat('<tr class="full" id=', rand_id, '><td> ',
+                 var r = result.concat('<tr class="full" id=', rand_id, '><td> ',
                    object.get('department'),
                    '</td><td>', object.get('number'), '</td><td>',
                    object.get('difficulty'), '</td><td>', object.get('workload'),
