@@ -1,11 +1,23 @@
 var CreateCoursePage = function() {
+  // Check to see if this row is already selected; if not, select it & 
+  // unselect the currently selected row.
   var class_name = $(this).attr('class');
-  console.log("class_name: " + class_name);
+  if (!$(this).hasClass('selected')) {
+    $('.selected').css('background-color', '#FFFFFF');
+    $('.selected').removeClass('selected');
+    $(this).css('background-color', '#B68CEF');
+    $(this).addClass('selected');
+  } else {
+    $(this).css('background-color', '#FFFFFF');
+    $(this).removeClass('selected');
+  }
   // Hides course detail view; returns database view to full screen.
   if (class_name.indexOf('half') >= 0) {
     $(this).addClass('full').removeClass('half');
     $('#database').css('width', '100%');
     $('#database_header').css('width', '100%');
+    $('.h').css('width', $(window).width()/5);
+    $('#entries>tbody>tr>td').css('width', $(window).width()/5);
     // Clear prof table
     $('#profs_table').find('tr:gt(0)').remove();
   }
@@ -14,6 +26,8 @@ var CreateCoursePage = function() {
     $(this).addClass('half').removeClass('full');
     $('#database').css('width', '48%');
     $('#database_header').css('width', '48%');
+    $('.h').css('width', ($(window).width()*.48)/5);
+    $('#entries>tbody>tr>td').css('width', ($(window).width()*.48)/5);
     var queryCourseProfs = new Parse.Query('Professor');
     queryCourseProfs.ascending('name');
     var cur_course_dep = $(this).find('td:first').text();
@@ -38,6 +52,7 @@ var CreateCoursePage = function() {
             '<td>', object.get('rating'), '</td></tr>');
           $('#profs_table').append(r);
         }
+        $('#profs_table>tbody>tr>td').css('width', $(window).width()*.24); 
        },
       error: function(error) {
                alert("Error: " + error.code + " " + error.message);

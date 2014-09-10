@@ -4,7 +4,8 @@ $(document).ready(function() {
     "DSHMNswCbwANFJ6SyWKVmI3AdfdsQI9FwOYDJ7gc");
   $('#temp').hide();
   window_width = $(window).width();
-  $('h').css('width', window_width/5);
+  $('.h').css('width', window_width/5);
+  $('#profs_table>tbody>tr>th').css('width', window_width*.24);
   LoadAll();
   $('input').keyup(AddFilter);
   // Add box if enter key is pressed
@@ -29,6 +30,7 @@ var LoadAll = function() {
                    object.get('difficulty'), '</td><td>', object.get('workload'),
                    '</td><td>', object.get('overall'), '</td></tr>');
                  $('#entries').append(r);
+                 $('#entries>tbody>tr>td').css('width', $(window).width()/5); 
                  $('#'+ rand_id).click(CreateCoursePage);
                }
              },

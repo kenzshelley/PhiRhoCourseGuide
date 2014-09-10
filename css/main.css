@@ -3,6 +3,7 @@
   height: 600px;
   width: 100%;
   float: left;
+  position: fixed;
 }
 
 #filters {
@@ -18,7 +19,7 @@ button {
 }
 
 .h {
-  text-align: center;
+  text-align: left;
   width: 204px;
 }
 
@@ -34,11 +35,11 @@ h1 {
 #title {
   display: inline;
   padding: 40px; 
+  position: relative;
 }
 
 td {
-  text-align: center;
-  width: 100px;
+  text-align: left;
 }
 
 .form-control {
@@ -52,17 +53,28 @@ td {
   display: inline;
 }
 
-#blowup {
-  width: 50%;
-  float: left;
-}
 
 #detail_view {
   float: right;
   width: 48%;
+  margin-right: 20px;
   height: 100%;
 }
 
 #professor_list {
   width: 100%;
 }
+
+.selected {
+  background-color: #FFFFFF;
+}
+
+tr {
+  background-color: #FFFFFF;
+}
+
+body {
+  background-color: #FFE5B1;
+  margin-top: 20px;
+}
+
