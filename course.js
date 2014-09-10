@@ -29,6 +29,8 @@ var CreateCoursePage = function() {
     $('.h').css('width', ($(window).width()*.48)/5);
     $('#entries>tbody>tr>td').css('width', ($(window).width()*.48)/5);
     var queryCourseProfs = new Parse.Query('Professor');
+    var queryCourseComments = new Parse.Query('Course');
+
     queryCourseProfs.ascending('name');
     var cur_course_dep = $(this).find('td:first').text();
     cur_course_dep= cur_course_dep.substring(1);
@@ -54,6 +56,30 @@ var CreateCoursePage = function() {
         }
         $('#profs_table>tbody>tr>td').css('width', $(window).width()*.24); 
        },
+      error: function(error) {
+               alert("Error: " + error.code + " " + error.message);
+             }
+    });
+
+    queryCourseComments.equalTo('name', cur_course_name);
+    queryCourseComments.find({
+      success: function(results) {
+                if ($('#comment_table tr'.length < 1)) {
+                  $('#comment_table').find('tr:gt(0)').remove();    
+                }
+                if (results.length != 1) {
+                  console.log('Multiple results for one class...weird...');
+                }
+                var comments = results[0].get('Comments');
+                // Add new results
+                for (var i=0; i < comments.length; ++i) {
+                  if (comments[i] == '')
+                    continue;
+                  var result = '';
+                  var r = result.concat('<tr><td>', comments[i], '</td></tr>');
+                  $('#comment_table').append(r);
+                }
+             },
       error: function(error) {
                alert("Error: " + error.code + " " + error.message);
              }
