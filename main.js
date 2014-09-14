@@ -6,6 +6,7 @@ $(document).ready(function() {
   window_width = $(window).width();
   $('.h').css('width', window_width/5);
   $('#profs_table>tbody>tr>th').css('width', window_width*.24);
+  $('#database').css('height', $(window).height());
   LoadAll();
   $('input').keyup(AddFilter);
   // Add box if enter key is pressed
